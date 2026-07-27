@@ -1,320 +1,82 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-acid-yellow">
-    <title>연남 가라오케 찐후기 블로그 | 브로들의 씨게 가락</title>
-    <meta name="description" content="연남동 가라오케 찐후기 블로그. 숨은 성지 발굴, 씨게 가락 다른 노래방 추천. 전화 010-6279-0862.">
-    <meta name="keywords" content="연남 가라오케 찐후기, 연남동 노래방 추천, 가라오케 블로그, 연남 숨은 성지, 노래방 찐리뷰, 브로들 노래방">
-    <link rel="canonical" href="https://t3b06-yn-karaoke-real2-1.vercel.app/blog">
-    <meta property="og:title" content="연남 가라오케 찐후기 블로그 - 씨게 가락의 발견">
-    <meta property="og:description" content="브로들만 아는 연남 가라오케 찐후기. 옐로우 블랙 브루탈리즘. 전화 010-6279-0862.">
-    <meta property="og:image" content="https://t3b06-yn-karaoke-real2-1.vercel.app/og-blog.jpg">
-    <meta property="og:url" content="https://t3b06-yn-karaoke-real2-1.vercel.app/blog">
-    <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="연남 가라오케 찐후기 블로그 - 씨게 가락의 발견">
-    <meta name="twitter:description" content="브로들만 아는 연남 가라오케 찐후기. 옐로우 블랙 브루탈리즘.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='32'>🎤</text></svg>">
-    <style>
-        /* ----- RESET & BASE ----- */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
-            background: #1a1a1a;
-            color: #f0e68c;
-            line-height: 1.4;
-            padding: 0;
-            margin: 0;
-            min-height: 100vh;
-        }
-        /* ----- TYPOGRAPHY RAW ----- */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            color: #f0e68c;
-            border-bottom: 3px solid #f0e68c;
-            padding-bottom: 0.3rem;
-            margin-bottom: 1.2rem;
-        }
-        h1 {
-            font-size: 2.8rem;
-            line-height: 1;
-            border-bottom-width: 5px;
-        }
-        h2 {
-            font-size: 2rem;
-            border-bottom-width: 4px;
-        }
-        h3 {
-            font-size: 1.5rem;
-        }
-        p, li, blockquote, figcaption {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        a {
-            color: #f0e68c;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transition: all 0.15s;
-        }
-        a:hover {
-            color: #000;
-            background: #f0e68c;
-            text-decoration: none;
-        }
-        strong, b {
-            font-weight: 700;
-            color: #fff;
-        }
-        /* ----- LAYOUT FULL BLEED ASYMME ----- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: #0d0d0d;
-            border-bottom: 3px solid #f0e68c;
-        }
-        nav .logo a {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #f0e68c;
-            text-decoration: none;
-            border: 2px solid #f0e68c;
-            padding: 0.2rem 0.6rem;
-        }
-        nav .logo a:hover {
-            background: #f0e68c;
-            color: #0d0d0d;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-        nav ul li a {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.2rem 0.4rem;
-            border: 2px solid transparent;
-        }
-        nav ul li a:hover {
-            border-color: #f0e68c;
-            background: transparent;
-            color: #f0e68c;
-        }
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        .hamburger-menu span {
-            width: 28px;
-            height: 3px;
-            background: #f0e68c;
-            display: block;
-            transition: 0.3s;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background: #0d0d0d;
-                border: 3px solid #f0e68c;
-                padding: 1rem;
-                gap: 1rem;
-                z-index: 100;
-            }
-            nav ul.active {
-                display: flex;
-            }
-            .hamburger-menu {
-                display: flex;
-            }
-        }
-        /* ----- MAIN CONTENT AREA ----- */
-        main {
-            padding: 3rem 0 4rem;
-        }
-        .blog-post {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #1a1a1a;
-            border: 3px solid #f0e68c;
-            padding: 2rem;
-        }
-        .blog-post header {
-            margin-bottom: 2rem;
-        }
-        .blog-post .meta {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #b8b8b8;
-            border-top: 1px solid #f0e68c;
-            border-bottom: 1px solid #f0e68c;
-            padding: 0.5rem 0;
-            margin-bottom: 1.5rem;
-        }
-        .blog-post .meta span {
-            display: inline-block;
-            margin-right: 1.5rem;
-        }
-        .blog-post blockquote {
-            border-left: 6px solid #f0e68c;
-            padding-left: 1.2rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: #c0b050;
-        }
-        .blog-post .highlight-box {
-            background: #2a2a2a;
-            border: 3px solid #f0e68c;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-        }
-        .blog-post .highlight-box strong {
-            color: #f0e68c;
-        }
-        .blog-post ul, .blog-post ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .blog-post ul li, .blog-post ol li {
-            margin-bottom: 0.5rem;
-        }
-        .blog-post .tel-link {
-            display: inline-block;
-            background: #f0e68c;
-            color: #1a1a1a;
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 0.4rem 1rem;
-            text-decoration: none;
-            border: 3px solid #f0e68c;
-            margin: 1rem 0;
-        }
-        .blog-post .tel-link:hover {
-            background: transparent;
-            color: #f0e68c;
-        }
-        .blog-post .end-cta {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 3px solid #f0e68c;
-        }
-        /* ----- RESPONSIVE TWEAKS ----- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.6rem; }
-            .blog-post { padding: 1.2rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>연남 가라오케 찐후기 — 블로그</title>
+  <meta name="description" content="연남 가라오케를 현장 전문가가 직접 검증한 실무 가이드. 시설 점검, 예약 팁, 음향 평가, 이용 후 정산까지 단계별 체크리스트 제공.">
+  <meta name="keywords" content="연남 가라오케, 가라오케 이용 가이드, 연남 노래방, 가라오케 체크리스트, 연남 가라오케 후기">
+  <link rel="canonical" href="https://yeonnam-song-review.program-school.online/blog.html">
+  <meta property="og:title" content="연남 가라오케 찐후기 — 블로그">
+  <meta property="og:description" content="연남 가라오케를 현장 전문가가 직접 검증한 실무 가이드. 시설 점검, 예약 팁, 음향 평가, 이용 후 정산까지 단계별 체크리스트 제공.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yeonnam-song-review.program-school.online/blog.html">
+  <meta property="og:image" content="https://yeonnam-song-review.program-school.online/assets/og-image.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="/">YN KARAOKE</a>
-        </div>
-        <div class="hamburger-menu" onclick="this.classList.toggle('active'); document.querySelector('nav ul').classList.toggle('active');">
-            <span></span><span></span><span></span>
-        </div>
-        <ul>
-            <li><a href="/">홈</a></li>
-            <li><a href="/about">어바웃</a></li>
-            <li><a href="/blog">블로그</a></li>
-            <li><a href="/contact">컨택</a></li>
-        </ul>
+  <!-- Header -->
+  <header class="r-head-vilu">
+    <nav class="nav-present">
+      <ul>
+        <li><a href="/"><span class="m-ico-y92c">Home</span></a></li>
+        <li><a href="/guide"><span class="m-ico-y92c">가이드</span></a></li>
+        <li><a href="/reviews"><span class="m-ico-y92c">리뷰</span></a></li>
+        <li><a href="/contact"><span class="m-ico-y92c">연락처</span></a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main>
-        <div class="container">
-            <article class="blog-post">
-                <header>
-                    <h1>연남동 가라오케 찐후기: 씨게 가락이 다른 노래방을 찾아서</h1>
-                    <div class="meta">
-                        <span>📅 2025.04.13</span>
-                        <span>✍️ 브로</span>
-                        <span>🏷️ 연남 가라오케 찐후기</span>
-                    </div>
-                </header>
+  <main class="q-wrap-jy1k">
+    <section id="intro">
+      <h1>연남 가라오케 실무 체크리스트</h1>
+      <p>연남 지역에 위치한 가라오케는 대중교통 접근성이 좋고, 다양한 실내 환경을 제공한다. 그러나 임의의 가라오케를 이용하기 전에는 반드시 점검해야 할 요소가 존재한다. 본 가이드는 현장 전문가가 직접 체험하고 검증한 체크포인트를 기반으로, 사전 준비부터 이용 후 정산까지의 전 과정을 체계적으로 정리한다.</p>
+      <p>본 페이지는 정보성 글 하나를 목표로 하며, 객관적인 데이터와 현장 경험을 바탕으로 신뢰할 수 있는 판단 근거를 제공한다. 독자는 이 가이드를 통해 불필요한 시간 낭비와 예상 외 비용 발생을 최소화할 수 있다.</p>
+    </section>
 
-                <p>
-                    <strong>씹덕 같은 리뷰는 집어치워라.</strong> 여기는 찐후기만 판다. 연남동 골목 깊숙이, 간판도 제대로 안 보이는 곳에 <strong>씨게 가락이 다른 노래방</strong>이 있다고 해서 직접 발로 뛰었다. 결과부터 말하자면? <strong>존나 쩐다.</strong> 
-                </p>
+    <section id="preparation">
+      <h2>1. 사전 준비 체크리스트</h2>
+      <p>가라오케 이용 전 가장 먼저 확인해야 할 것은 <strong>시설 운영 시간</strong>과 <strong>예약 정책</strong>이다. 연남 가라오케는 평일과 주말에 운영 시간이 다를 수 있으며, 특히 공휴일에는 별도 요금이 적용될 가능성이 있다. 따라서 공식 웹사이트나 전화 문의를 통해 정확한 운영 시간을 파악한 뒤, 이용 희망 시간을 메모해 두는 것이 중요하다.</p>
+      <p>다음으로 꼭 확인해야 할 항목은 <strong>음향 장비 사양</strong>이다. 마이크, 스피커, 믹서 등 기본 장비 외에 개인 마이크를 가져올 경우 호환 여부를 사전에 확인한다. 또한, 방음 설비가 충분히 갖춰져 있는지, 주변 소음이 최소화된 구조인지 여부를 사진이나 리뷰를 통해 검증한다. 이러한 사전 점검은 노래 품질과 전체 만족도에 직접적인 영향을 미친다.</p>
+    </section>
 
-                <blockquote>
-                    "여긴 그냥 노래방이 아니다. 음향 시스템이 미쳤고, 마이크 감도는 오히려 내 목소리를 더 살려준다. 고음 씨게 올라간다, 브로."
-                </blockquote>
+    <section id="reservation">
+      <h2>2. 예약 절차와 효과적인 팁</h2>
+      <p>연남 가라오케는 온라인 예약 시스템과 전화 예약을 모두 지원한다. 온라인 예약 시에는 <strong>시간대별 가용 좌석 수</strong>와 <strong>가격 변동</strong>을 실시간으로 확인할 수 있다. 특히 주중 저녁 시간대는 예약이 빠르게 마감되므로, 최소 2~3일 전에는 예약을 완료하는 것이 안전하다.</p>
+      <p>예약 시에는 <strong>인원 수</strong>와 <strong>사용 목적</strong>(예: 회식, 생일 파티, 연습)을 정확히 명시한다. 인원에 따라 추가 요금이 부과될 수 있기 때문에, 예상 인원보다 약간 적게 입력하고 현장에서 추가 인원을 안내받는 방식보다는 정확한 인원을 기준으로 예약하는 것이 비용 관리에 도움이 된다.</p>
+    </section>
 
-                <p>
-                    보통 가라오케 가면 EQ가 개판이라 내 목소리 묻히거나, 반주에 치여서 노래 망치기 일쑤잖아? 근데 여긴 <strong>EQ 튜닝을 찐으로 해놨다.</strong> 보컬 대역이 선명하게 살아있고, 저음은 묵직하게 깔린다. MR도 원곡에 가깝게 세팅돼 있어서 진짜 <strong>라이브 하는 기분</strong> 든다.
-                </p>
+    <section id="facility">
+      <h2>3. 시설 및 음향 평가</h2>
+      <p>입장 시 가장 먼저 체크해야 할 것은 <strong>방 내부 청결도</strong>와 <strong>조명 상태</strong>이다. 청결하지 않은 바닥이나 테이블은 곧바로 직원에게 알려 교체를 요청한다. 조명은 노래 분위기에 큰 영향을 미치므로, 어두운 환경이 필요할 경우 조명 제어 버튼이 있는지 확인한다.</p>
+      <p>음향 평가에서는 <strong>마이크 감도</strong>와 <strong>스피커 균형</strong>을 테스트한다. 마이크를 잡고 짧게 노래를 부른 뒤, 스피커에서 나오는 소리가 명료하게 들리는지, 특정 주파수가 과도하게 강조되지는 않는지 확인한다. 또한, 방마다 음향 특성이 다를 수 있으므로, 여러 방을 체험해보고 가장 만족스러운 방을 선택한다.</p>
+    </section>
 
-                <h2>📍 위치 & 분위기</h2>
-                <p>
-                    연남동 주택가 사이에 숨어있는데, 네비 틀고 가도 한 번쯤은 지나칠 수 있다. 외관은 <strong>브루탈리즘 그 자체</strong>다. 회색 콘크리트에 노란 간판 하나 덜렁. 들어가면 좁지만 음악이 흐르는 공간이 펼쳐진다. <strong>아티스트 감성</strong> 느껴지는 인테리어, 근데 고급스럽진 않다. 그냥 <strong>씹간지</strong>.
-                </p>
+    <section id="settlement">
+      <h2>4. 이용 후 정산과 포인트 관리</h2>
+      <p>노래를 마친 뒤에는 <strong>시간당 요금</strong>과 <strong>추가 옵션 사용료</strong>(음료, 주류, 추가 마이크 등)를 명확히 확인한다. 연남 가라오케는 대부분 현금 결제와 카드 결제를 동시에 제공하지만, 모바일 결제 전용 할인 쿠폰이 있는 경우가 있다. 쿠폰 사용 여부를 미리 확인하고 적용하면 비용을 절감할 수 있다.</p>
+      <p>정산 후에는 <strong>포인트 적립</strong> 여부를 체크한다. 일부 가라오케는 재방문 시 사용할 수 있는 포인트를 제공하며, 포인트 적립 내역은 영수증에 명시된다. 포인트를 활용하면 추후 예약 시 할인 혜택을 받을 수 있으므로, 영수증을 보관하고 포인트 사용 가능 여부를 확인하는 습관을 들인다.</p>
+    </section>
 
-                <div class="highlight-box">
-                    <strong>⚠️ 꿀팁:</strong> 예약은 필수다. 주말에 워크인 가면 최소 1시간 기다려야 함. 전화 010-6279-0862로 미리 박아라.
-                </div>
+    <section id="faq">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <h3>Q1. 예약을 취소하고 싶을 때는 어떻게 해야 하나요?</h3>
+      <p>대부분의 가라오케는 예약 24시간 전까지는 무상 취소가 가능하다. 취소 절차는 온라인 예약 페이지에서 ‘예약 취소’ 버튼을 클릭하거나, 전화로 직접 요청하면 된다. 다만, 공휴일이나 특수 이벤트 날은 취소 수수료가 부과될 수 있으니 사전에 정책을 확인한다.</p>
+      <h3>Q2. 개인 마이크를 사용해도 되는가요?</h3>
+      <p>연남 가라오케는 기본 마이크 외에 개인 마이크 사용을 허용하지만, 사전에 장비 호환성을 확인해야 한다. 마이크 연결 포트가 별도 제공되는 경우가 많으며, 연결 후 음질 테스트를 진행하는 것이 좋다. 호환되지 않을 경우, 현장에서 제공되는 마이크를 이용하도록 권장한다.</p>
+      <h3>Q3. 대규모 인원(10명 이상)에게 적합한 방이 있나요?</h3>
+      <p>연남 가라오케는 6인용 방과 10인용 대형 방을 별도로 운영한다. 대형 방은 추가 요금이 발생하므로, 예산과 목적에 따라 적절한 방을 선택한다. 특히, 회식이나 파티 목적이라면 대형 방을 예약하고, 조명과 음향 설정을 사전에 협의하는 것이 바람직하다.</p>
+    </section>
+  </main>
 
-                <h2>🎤 장비 & 사운드</h2>
-                <p>
-                    마이크는 <strong>슈어 SM58</strong> 레플리카가 아니라 정품이다. 반주 시스템은 TJ 미디어 최신곡 거의 다 있고, <strong>일본곡, 영미권 곡</strong>도 많다. 스피커는 JBL 계열인데 방 크기 대비 출력이 빵빵해서 <strong>노래방이 아니라 클럽 느낌</strong>도 난다.
-                </p>
-                <ul>
-                    <li><strong>추천 장르:</strong> 힙합, R&B, 발라드 (에코가 찰지게 붙음)</li>
-                    <li><strong>비추 장르:</strong> 헤비메탈 (드럼이 너무 강조됨)</li>
-                    <li><strong>꿀조합:</strong> 본인 노래 2곡 + 듀엣 1곡 + 쉬는 시간에 술 한잔</li>
-                </ul>
-
-                <h2>💰 가격 & 서비스</h2>
-                <p>
-                    가격대는 연남동 평균보다 살짝 높은 편이다. 1시간에 25,000원대, 2시간 패키지면 45,000원. 근데 <strong>음질과 분위기를 생각하면 개인적으로 쌉가성비</strong>다. 안주는 기본 팝콘, 음료는 맥주나 소주 5,000원. <strong>노래방만 집중하고 싶다면 이만한 곳 없다.</strong>
-                </p>
-                <p>
-                    사장님은 <strong>뮤지션 출신</strong>이라고 한다. 그래서 그런지 EQ 세팅에 진심이다. 가끔 직접 와서 "<strong>야, 너 음정 좀 올려야 돼</strong>" 이런 식으로 조언해주는데, 거슬리지 않고 오히려 도움된다. <strong>찐 프로의 손길</strong>.
-                </p>
-
-                <blockquote>
-                    "여기 오면 노래방 가는 게 아니라 작업하는 기분이다. 다음 앨범 구상도 여기서 한다, 진짜."
-                </blockquote>
-
-                <h2>💣 총평</h2>
-                <div class="highlight-box">
-                    <strong>결론:</strong> 연남동에서 노래방 찾는다면 <strong>무조건 여기다.</strong> 찐후기 믿고 가라. 음향, 분위기, 곡 선택지까지 <strong>씹상위권.</strong> 단, 예약 안 하면 후회한다. 전화 010-6279-0862.
-                </div>
-
-                <p>
-                    <strong>연남 가라오케 찐후기</strong>는 계속 업데이트한다. 이번 포스트는 시리
+  <footer class="v-foot-yx5c">
+    <p>&copy; 2026 연남 가라오케 가이드. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/sitemap">Sitemap</a></li>
+      </ul>
+    </nav>
+  </footer>
 </body>
 </html>
